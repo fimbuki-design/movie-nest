@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>My Favourite Movie</title>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="/images/video-player.png">
+</head>
+
+<body>
+
+  <!-- Home Section -->
+  <header>
+    <h1>My Favourite Movie</h1>
+  </header>
+  
+  <!-- Movie Information Section -->
+  <section>
+    <header>
+      <h2>Description</h2>
+    </header>
+    <button onclick="document.getElementById('myImage').src='images/download2.jpg'">Switch Poster</button>
+    <img id="myImage" src="images/download.jpg">
+
+<button onclick="document.getElementById('myImage').src='images/download.jpg'">Switch Back</button>
+    <p>
+      <em>Inception</em> is a <strong>mind-bending</strong> sci-fi thriller about
+      thieves who steal secrets from people's dreams.
+      What made it stand out was its <em>original story</em> and
+      <strong>stunning visuals</strong>.
+    </p>
+  </section>
+
+  <section>
+    <!-- Trailer of the movie -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/YoHD9XEInc0" title="Movie trailer" allowfullscreen></iframe>
+  </section>
+
+  <section>
+    <header>
+      <h2>Characters</h2>
+    </header>
+
+    <ul>
+      <li>
+        <img src="images/dom_cobb.jpg" alt="Dom Cobb">
+        <dl>
+          <dt>Character name</dt>
+          <dd>Dom Cobb</dd>
+          <dt>Actor name</dt>
+          <dd>Leonardo DiCaprio</dd>
+          <dt>Description of role</dt>
+          <dd>A skilled thief who enters dreams.</dd>
+        </dl>
+      </li>
+      <li>
+        <img src="images/arthur.jpg" alt="Arthur">
+        <dl>
+          <dt>Character name</dt>
+          <dd>Arthur</dd>
+          <dt>Actor name</dt>
+          <dd>Joseph Gordon-Levitt</dd>
+          <dt>Description of role</dt>
+          <dd>Cobb's calm and careful partner.</dd>
+        </dl>
+      </li>
+      <li>
+        <img src="images/ariadne.jpg" alt="Ariadne">
+        <dl>
+          <dt>Character name</dt>
+          <dd>Ariadne</dd>
+          <dt>Actor name</dt>
+          <dd>Elliot Page</dd>
+          <dt>Description of role</dt>
+          <dd>The architect who designs the dream worlds.</dd>
+        </dl>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>Form</h2>
+    </header>
+
+    <form action="#" method="post">
+      <p>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required>
+      </p>
+      <p>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required>
+      </p>
+      <p>
+        <label for="rating">Movie Rating (out of 5):</label><br>
+        <select id="rating" name="rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </p>
+      <p>
+        <label for="comment">Comment:</label><br>
+        <textarea id="comment" name="comment" rows="4" cols="40"></textarea>
+      </p>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+</body>
+
+</html>
