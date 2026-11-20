@@ -1,142 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore Inception: its story, characters, trailer, and share your review.">
-  <title>Inception — A World Within a World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Favourite Movie</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="/images/video-player.png">
+  <link rel="icon" type="image/x-icon" href="images/video-player.png">
+  <script src="script.js" defer></script>
 </head>
+
 <body>
-  <header class="site-header" id="home">
-    <nav class="site-nav" aria-label="Main navigation">
-      <a class="brand" href="#home">INCEPTION</a>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="#home" class="logo">My Favourite Movie</a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#characters">Characters</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About the Movie</a></li>
+        <li><a href="#characters">Main Characters</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#trailer">Trailer</a></li>
+        <li><a href="#tickets">Tickets</a></li>
         <li><a href="#reviews">Reviews</a></li>
       </ul>
     </nav>
-    <div class="hero">
-      <p class="eyebrow">A Christopher Nolan film</p>
-      <h1 class="movie-title">Your mind is the scene of the crime.</h1>
-      <p class="hero-copy">Enter a world where the line between dreams and reality is only the beginning.</p>
-      <a class="button trailer-button" href="#trailer">Watch the trailer <span aria-hidden="true">↗</span></a>
-    </div>
   </header>
 
   <main>
-    <section class="section movie-intro" id="about" aria-labelledby="about-title">
-      <div class="section-heading">
-        <p class="eyebrow">The story</p>
-        <h2 id="about-title">About the movie</h2>
-      </div>
-      <div class="movie-details">
-        <figure class="poster">
-          <img src="images/download.jpg" alt="Inception theatrical poster featuring its dreamlike cityscape and ensemble cast">
-          <figcaption>Inception (2010) — theatrical poster</figcaption>
+
+    <!-- Home Section -->
+    <section id="home" class="hero-section">
+      <h1 class="movie-title">My Favourite Movie</h1>
+      <p class="movie-intro">
+        <em>Inception</em> is a <strong>mind-bending</strong> sci-fi thriller about
+        thieves who steal secrets from people's dreams.
+        What made it stand out was its <em>original story</em> and
+        <strong>stunning visuals</strong>.
+      </p>
+      <a href="#trailer" class="watch-trailer-btn">Watch Trailer</a>
+    </section>
+
+    <!-- About the Movie Section -->
+    <section id="about">
+      <h2>About the Movie</h2>
+      <div class="movie-info">
+        <figure class="poster-figure">
+          <img id="myImage" src="images/download.jpg" alt="Inception movie poster">
+          <figcaption>Inception (2010)</figcaption>
+          <div class="poster-controls">
+            <button type="button" id="switchPosterBtn">Switch Poster</button>
+            <button type="button" id="switchBackBtn">Switch Back</button>
+          </div>
         </figure>
-        <div class="movie-copy">
-          <h3>A dream within a dream</h3>
-          <dl class="movie-facts">
-            <div><dt>Release year</dt><dd>2010</dd></div>
-            <div><dt>Genre</dt><dd>Science fiction · Action · Thriller</dd></div>
-            <div><dt>Duration</dt><dd>2 hours 28 minutes</dd></div>
-            <div><dt>Director</dt><dd>Christopher Nolan</dd></div>
+
+        <div class="movie-details">
+          <h3 id="display-title">Loading title...</h3>
+          <p id="movie-description">
+            <em>Inception</em> is a <strong>mind-bending</strong> sci-fi thriller about
+            thieves who steal secrets from people's dreams.
+            What made it stand out was its <em>original story</em> and
+            <strong>stunning visuals</strong>.
+          </p>
+          <p id="movie-summary" class="summary-text"></p>
+
+          <!-- Task 12: Populated from movie object -->
+          <ul class="meta-list">
+            <li><strong>Director:</strong> <span id="display-director"></span></li>
+            <li><strong>Release Year:</strong> <span id="display-year"></span></li>
+            <li><strong>Genre:</strong> <span id="display-genre"></span></li>
+            <li><strong>Duration:</strong> <span id="display-duration"></span></li>
+            <li><strong>Initial Rating:</strong> <span id="display-initial-rating"></span></li>
+          </ul>
+
+          <!-- Task 13: Like Button connected to closure -->
+          <div class="interactive-controls">
+            <button type="button" id="like-btn">Like (<span id="like-count">0</span>)</button>
+            <button type="button" id="bg-color-btn">Change Background Colour</button>
+          </div>
+
+          <!-- Tasks 14 & 15: Rating Input & Average Updater -->
+          <div class="rating-control">
+            <p>
+              Average User Rating: <strong id="average-rating">0.0</strong> / 10
+              (<span id="rating-count">0</span> ratings)
+            </p>
+            <div class="rating-input-row">
+              <label for="user-rating-input">Rate Movie (whole number 1–10):</label>
+              <input type="number" id="user-rating-input" min="1" max="10" step="1">
+              <button type="button" id="submit-rating-btn">Submit Rating</button>
+            </div>
+            <p id="rating-feedback" class="feedback-msg" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Characters Section -->
+    <section id="characters">
+      <h2>Main Characters</h2>
+      <div class="character-container">
+        <article class="character-card featured">
+          <img src="images/dom_cobb.jpg" alt="Dom Cobb">
+          <h3>Dom Cobb</h3>
+          <dl>
+            <dt>Character name</dt>
+            <dd>Dom Cobb</dd>
+            <dt>Actor name</dt>
+            <dd>Leonardo DiCaprio</dd>
+            <dt>Description of role</dt>
+            <dd>A skilled thief who enters dreams.</dd>
           </dl>
-          <p>Dom Cobb is a skilled thief who steals secrets from deep within the subconscious during the dream state. Offered a chance to have his past erased, he must do the impossible: plant an idea in someone's mind. As Cobb and his team descend through layers of dreams, the mission blurs the boundary between reality and imagination.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section characters-section" id="characters" aria-labelledby="characters-title">
-      <div class="section-heading">
-        <p class="eyebrow">The dream team</p>
-        <h2 id="characters-title">Main characters</h2>
-      </div>
-      <div class="character-grid">
-        <article class="character-card featured-character">
-          <img src="images/dom_cobb.jpg" alt="Illustrative portrait representing Dom Cobb, the determined dream thief">
-          <div class="card-copy"><h3>Dom Cobb</h3><p>A gifted extractor haunted by his past, Cobb leads the team into the deepest layers of the subconscious.</p></div>
         </article>
+
         <article class="character-card">
-          <img src="images/arthur.jpg" alt="Illustrative portrait representing Arthur, Cobb's precise and resourceful partner">
-          <div class="card-copy"><h3>Arthur</h3><p>Cobb's meticulous point man, responsible for planning and keeping the operation on track.</p></div>
+          <img src="images/arthur.jpg" alt="Arthur">
+          <h3>Arthur</h3>
+          <dl>
+            <dt>Character name</dt>
+            <dd>Arthur</dd>
+            <dt>Actor name</dt>
+            <dd>Joseph Gordon-Levitt</dd>
+            <dt>Description of role</dt>
+            <dd>Cobb's calm and careful partner.</dd>
+          </dl>
         </article>
+
         <article class="character-card">
-          <img src="images/ariadne.jpg" alt="Illustrative portrait representing Ariadne, the young dream architect">
-          <div class="card-copy"><h3>Ariadne</h3><p>A brilliant architecture student who designs the intricate worlds that make the team's dreams possible.</p></div>
+          <img src="images/ariadne.jpg" alt="Ariadne">
+          <h3>Ariadne</h3>
+          <dl>
+            <dt>Character name</dt>
+            <dd>Ariadne</dd>
+            <dt>Actor name</dt>
+            <dd>Elliot Page</dd>
+            <dt>Description of role</dt>
+            <dd>The architect who designs the dream worlds.</dd>
+          </dl>
         </article>
       </div>
-      <p class="image-note">Character portraits are illustrative representations.</p>
     </section>
 
-    <section class="section trailer-section" id="trailer" aria-labelledby="trailer-title">
-      <div class="section-heading">
-        <p class="eyebrow">Step inside</p>
-        <h2 id="trailer-title">Watch the trailer</h2>
-        <p>Take a first look at the shifting worlds and impossible choices of Inception.</p>
-      </div>
-      <div class="video-frame">
-        <iframe src="https://www.youtube-nocookie.com/embed/YoHD9XEInc0" title="Official Inception movie trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-    </section>
-
-    <section class="section gallery-section" aria-labelledby="gallery-title">
-      <div class="section-heading">
-        <p class="eyebrow">A world of its own</p>
-        <h2 id="gallery-title">Dreamlike moments</h2>
-        <p>A visual moodboard inspired by the film's surreal cityscapes and shifting dream worlds.</p>
-      </div>
+    <!-- Movie Gallery Section -->
+    <section id="gallery">
+      <h2>Movie Gallery</h2>
       <div class="gallery-grid">
-        <img class="gallery-feature" src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1400&q=85" alt="Dramatic night sky evoking the surreal dream worlds of Inception" loading="lazy">
-        <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=80" alt="Dreamlike clouds and light, inspired by Inception's atmosphere" loading="lazy">
-        <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=75&sat=-35" alt="A moody cinematic view inspired by the film's layered dreams" loading="lazy">
-        <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=80&h=600" alt="Surreal evening colors reminiscent of Inception's dreamscapes" loading="lazy">
-        <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=80&sat=25" alt="A cinematic interpretation of a dream within a dream" loading="lazy">
-        <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=85&h=900" alt="Atmospheric sky inspired by the visual world of Inception" loading="lazy">
+        <img class="featured-still" src="images/scene1.jpg" alt="Scene 1 from Inception">
+        <img src="images/scene2.jpg" alt="Scene 2 from Inception">
+        <img src="images/scene3.jpg" alt="Scene 3 from Inception">
+        <img src="images/scene4.jpg" alt="Scene 4 from Inception">
+        <img src="images/scene5.jpg" alt="Scene 5 from Inception">
+        <img src="images/scene6.jpg" alt="Scene 6 from Inception">
       </div>
-      <p class="image-note">Gallery images are visual references, not film stills.</p>
     </section>
 
-    <section class="section reviews-section" id="reviews" aria-labelledby="reviews-title">
-      <div class="section-heading">
-        <p class="eyebrow">Your turn</p>
-        <h2 id="reviews-title">Leave a review</h2>
-        <p>What did you think of the film? Share your rating and thoughts.</p>
+    <!-- Trailer Section -->
+    <section id="trailer">
+      <h2>Trailer</h2>
+      <p>Watch the official movie trailer for Inception below.</p>
+      <div class="video-wrapper">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YoHD9XEInc0" title="Movie trailer" allowfullscreen></iframe>
       </div>
-      <form class="review-form" action="#reviews" method="get">
-        <div class="form-row">
-          <div class="form-field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required maxlength="80" placeholder="Your name">
-          </div>
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required maxlength="120" placeholder="you@example.com">
-          </div>
+    </section>
+
+    <!-- Ticket Currency Converter Section -->
+    <section id="tickets">
+      <h2>Ticket Currency Converter</h2>
+      <div class="converter-box">
+        <label for="ticket-amount">Amount (USD):</label>
+        <input type="number" id="ticket-amount" value="15" min="1">
+
+        <label for="currency-select">Conversion Type:</label>
+        <select id="currency-select">
+          <option value="MUR">USD to MUR (Mauritian Rupee)</option>
+          <option value="EUR">USD to EUR (Euro)</option>
+          <option value="GBP">USD to GBP (British Pound)</option>
+        </select>
+
+        <button type="button" id="convert-btn">Convert</button>
+        <p>Converted Amount: <strong id="converted-result">690.00 MUR</strong></p>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+      <h2>Form</h2>
+      <form action="#" method="post" class="review-form">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required maxlength="50">
         </div>
-        <div class="form-field rating-field">
-          <label for="rating">Movie rating <span>(1–5)</span></label>
-          <input id="rating" name="rating" type="number" min="1" max="5" required placeholder="5">
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required maxlength="100">
         </div>
-        <div class="form-field">
-          <label for="comment">Review</label>
-          <textarea id="comment" name="comment" rows="5" maxlength="1000" required placeholder="Tell us what stayed with you..."></textarea>
-          <small>Maximum 1,000 characters.</small>
+
+        <div class="form-group">
+          <label for="rating">Movie Rating (out of 5):</label>
+          <input type="number" id="rating" name="rating" min="1" max="5" required>
         </div>
-        <button class="button submit-button" type="submit">Submit review</button>
-        <p class="form-note">This demo form validates your review in the browser; it does not store or send submissions.</p>
+
+        <div class="form-group">
+          <label for="comment">Comment:</label>
+          <textarea id="comment" name="comment" rows="4" cols="40" required maxlength="500"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
       </form>
     </section>
+
   </main>
 
   <footer class="site-footer">
-    <a class="brand" href="#home">INCEPTION</a>
-    <p>A fan-made movie page · 2010 film directed by Christopher Nolan</p>
-    <a href="#home">Back to top ↑</a>
+    <p>&copy; 2026 My Favourite Movie</p>
   </footer>
+
 </body>
+
 </html>
